@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Conference on Innovation in Data Engineering and Artificial Intelligence IDEAS'2027</title>
+    <link rel="stylesheet" href="templatemo-sleeky-pro.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <a href="#home" class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FF6B6B"/>
+                            <stop offset="100%" style="stop-color:#7FFFD4"/>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" fill="url(#logoGradient)" opacity="0.1"/>
+                    <path d="M20 60 L35 40 L50 55 L65 35 L80 50" stroke="url(#logoGradient)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="35" cy="40" r="3" fill="url(#logoGradient)"/>
+                    <circle cx="50" cy="55" r="3" fill="url(#logoGradient)"/>
+                    <circle cx="65" cy="35" r="3" fill="url(#logoGradient)"/>
+                    <rect x="25" y="65" width="50" height="15" rx="7" fill="url(#logoGradient)" opacity="0.3"/>
+                </svg>
+                <span class="logo-text">IDEAS'2027</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#services" class="nav-link">Call For Paper</a></li>
+                <li><a href="#about" class="nav-link">Keynotes</a></li>
+                <li><a href="#contact" class="nav-link">Committees</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Slider -->
+    <section id="home" class="hero">
+        <div class="slider-container">
+            <div class="progress-ring">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            
+            <div class="slider-stage" id="sliderStage"></div>
+            <!-- You can edit slider images in JS file -->
+            <!-- Edit templatemo-sleeky-scripts.js for image path / image filenames -->
+            <div class="text-overlay" id="textOverlay">
+                <h2 class="slide-title" id="slideTitle">Santa Cruz</h2>
+                <p class="slide-description" id="slideDescription">The Fort of Santa Cruz, overlooking the city of Oran, is a remarkable historic site offering a breathtaking panorama of the bay and the Mediterranean Sea.</p>
+            </div>
+            
+            <button class="nav-arrow prev" id="prevArrow" aria-label="Previous"></button>
+            <button class="nav-arrow next" id="nextArrow" aria-label="Next"></button>
+            
+            <div class="controls">
+                <button class="control-btn play-pause-btn" id="playPauseBtn" title="Play/Pause">
+                    <span class="play-icon"></span>
+                    <span class="pause-icon"></span>
+                </button>
+            </div>
+            
+            <div class="dots" id="dots"></div>
+            <div class="thumbnails-container" id="thumbnails"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">About IDEAS'2027?</h2>
+                <p class="section-subtitle">The National Conference on Innovation in Data Engineering and AI Science (IDEAS&rsquo;2027) unites researchers, students, and professionals to exchange ideas, promote collaboration, and shape the future of AI and data science in Oran, Algeria.</p>
+            </div>
+            
+            <div class="services-container">
+                <div class="services-tabs">
+                    <div class="service-tab active" data-service="photography"><img src="../../../../../Downloads/Gemini_Generated_Image_5yvlkn5yvlkn5yvl.png" width="50" height="50" alt=""/>
+                      <h3>Conference Topics</h3>
+                        <ul>
+                          <li data-start="731" data-end="770">
+                            <p data-start="733" data-end="770">Machine Learning &amp; Deep Learning</p>
+                          <li data-start="731" data-end="770">
+                            <p data-start="733" data-end="770"> Image processing &amp; Pattern Recognition</p>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li data-start="773" data-end="806">
+                            <p data-start="775" data-end="806"> Cloud Computing &amp; Big Data</p>
+                          </li>
+                      </ul>
+                        <ul>
+                          <li data-start="809" data-end="853">
+                            <p data-start="811" data-end="853"> Neural Networks &amp; Intelligent Systems</p>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li data-start="856" data-end="891">
+                            <p data-start="858" data-end="891">Cybersecurity &amp; Cryptography</p>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li data-start="894" data-end="925">
+                            <p data-start="896" data-end="925">Internet of Things (IoT)</p>
+                          </li>
+                        </ul>
+                      <ul>
+                          <li data-start="928" data-end="956">
+                            <p data-start="930" data-end="956">Robotics &amp; Automation</p>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li data-start="959" data-end="1003">
+                            <p data-start="961" data-end="1003">Mathematical Modelling &amp; Optimization</p>
+                          </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-tab" data-service="expeditions">
+                        <span class="service-tab-icon"><img src="../../../../../Downloads/Gemini_Generated_Image_x4e4klx4e4klx4e4.png" width="50" height="50" alt=""/></span>
+                        <h3>Workshops &amp; Tutorials</h3>
+                        <ul>
+                          <li data-start="869" data-end="914">
+                            <p data-start="871" data-end="914">Data Engineering Frameworks and Pipelines</p>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li data-start="917" data-end="979">
+                            <p data-start="919" data-end="979">Deep Learning Applications in Image and Speech Recognition</p>
+                          </li>
+                        </ul>
+                      <ul>
+                          <li data-start="982" data-end="1012">
+                            <p data-start="984" data-end="1012">Responsible and Ethical AI</p>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li data-start="1015" data-end="1053">
+                            <p data-start="1017" data-end="1053">AI Tools for Research and Industry</p>
+                          </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-tab" data-service="prints">
+                        <span class="service-tab-icon"><img src="../../../../../Downloads/Gemini_Generated_Image_7a3jpe7a3jpe7a3j.png" width="50" height="50" alt=""/></span>
+                        <h3>Proceedings &amp; Publications</h3>
+                        <p>All accepted and presented papers at IDEAS&rsquo;2027 will be included in the IEEE conference proceedings.<br data-start="782" data-end="785">
+                        Selected outstanding papers will be invited for publication in national scientific journals.</p>
+                        <p data-start="888" data-end="1024">Authors are invited to submit original and unpublished research contributions related to data engineering and artificial intelligence.</p>
+                      <ul data-start="1031" data-end="1190">
+                          <li data-start="1031" data-end="1075">
+                            <p data-start="1033" data-end="1075">IEEE and Word templates available online</p>
+                          </li>
+                          <li data-start="1078" data-end="1135">
+                            <p data-start="1080" data-end="1135">Submissions limited to 6 pages (including references)</p>
+                          </li>
+                          <li data-start="1138" data-end="1190">
+                            <p data-start="1140" data-end="1190">Review and selection by the Program Committee</p>
+                          </li>
+                      </ul>
+                  </div>
+                </div>
+                
+                <div class="services-content">
+                    <div class="service-content active" id="photography">
+                        <div class="service-content-icon">📸</div>
+                        <h2>Conference Topics</h2>
+                      <p>The <strong>IDEAS 2027 conference</strong> highlights six main axes,     reflecting its commitment to innovation in data engineering and     artificial intelligence. Relevant topics include, but <u><strong>are not limited to</strong></u>:                          </p>
+                        <ul class="service-features">
+                          <li>
+                            <a href="https://www.univ-usto.dz/ideas2025/#">Big Data Analytics and Visualization</a>
+                            <div>
+                              <div>
+                                   <ul>
+                                      - Big Data Frameworks, Data Visualization Techniques, Real-Time Analytics, Predictive Analytics Models.<br>                                             
+                                      - Business Intelligence Integration, Scalable Data Storage, IoT Data Analytics.<br>
+                                      - Ethical Data Challenges, Healthcare Data Insights, Emerging Analytics Trends.<br>
+                                    </ul>
+                                
+                              </div>
+                            </div>
+                          </li>
+                            <li>
+                               <a href="https://www.univ-usto.dz/ideas2025/#">Artificial Intelligence and Machine Learning</a>
+                              <div>
+                                <div>
+                                  <div>
+                                    <ul>
+                                      - Deep Learning Models, Reinforcement Learning Techniques, Natural Language Processing<br>
+                                      - AI in Healthcare, Computer Vision Applications, Explainable AI Methods <br>
+                                      - Ethical AI Challenges, Transfer Learning Approaches, Federated Learning Systems, AI for Cybersecurity <br>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li><a href="https://www.univ-usto.dz/ideas2025/#">Data Engineering and Intelligent Systems</a>
+                              <div>
+                                <div>
+                                  <div>
+                                    <ul>
+                                      - Data Quality Management, Edge Computing Frameworks, Smart Decision Systems. <br>
+                                       - Data Pipeline Design,   Distributed Data Systems, Cloud Data Integration, Intelligent System   Architectures <br>
+                                - Automated Data Processing, Knowledge Representation Models, Intelligent IoT Systems.</ul></div></div>
+                              </div>
+                          </li>
+                            <li><a href="https://www.univ-usto.dz/ideas2025/#">AI Applications in Industry and Healthcare</a>
+                              <div>
+                                <div>
+                                  <div>
+                                    <ul>
+                                      - AI in Manufacturing, Predictive Maintenance Models, Smart Supply Chains, AI in Finance. <br>
+                                      - Personalized Healthcare Solutions, Medical Imaging Analysis, Drug Discovery Automation. <br>
+                                      - AI for Remote Monitoring, Healthcare Chatbots Development, Robotics in Surgery. 
+                                </ul></div></div>
+                              </div>
+                          </li>
+                            <li><a href="https://www.univ-usto.dz/ideas2025/#">Ethics, Privacy, and Security in AI and Data Science</a>
+                              <div>
+                                <div>
+                                  <div>
+                                    <ul>
+                                       - AI Ethical Frameworks, Bias in Algorithms, Data Privacy Laws, Secure Data Sharing. <br>
+                                      - AI in Cybersecurity, Explainability in AI, Responsible Data Usage. <br>
+                                      - Adversarial AI Attacks, Trustworthy AI Systems, Privacy-Preserving Models.
+                                      </ul>
+                                  </div>
+                                </div>
+                              </div>
+								<li><a href="https://www.univ-usto.dz/ideas2025/#">Emerging Trends in AI and Data Science</a>
+Science</a>
+                              <div>
+                                <div>
+                                  <div>
+                                    <ul>
+                                       - Quantum Machine Learning, Neuromorphic Computing, AI-Driven Automation, Synthetic Data Generation.                                             								             <br>
+                                      - Autonomous Systems Evolution, Edge AI Integration, Human-AI Collaboration. <br>
+                                      - AI in Blockchain, Multimodal AI Models, Sustainable AI Practices.
+                                      </ul>
+                                  </div>
+                                </div>
+                              </div>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-content" id="expeditions">
+                        <div class="service-content-icon">🏔️</div>
+                        <h2>Alpine Expedition Photography</h2>
+                        <p>Multi-day backcountry expeditions to remote peaks above 12,000 feet, accessible only by helicopter or multi-day trek. Our certified IFMGA mountain guides ensure safety while capturing impossible shots.</p>
+                        <p>Each expedition is limited to 3 participants and includes professional drone pilots, survival gear, and satellite communication systems.</p>
+                        <ul class="service-features">
+                            <li>IFMGA certified mountain guides</li>
+                            <li>Professional-grade drone cinematography</li>
+                            <li>Satellite emergency communication</li>
+                            <li>Weather-sealed camera systems rated to -40°F</li>
+                            <li>Helicopter access to remote locations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-content" id="prints">
+                        <div class="service-content-icon">🎨</div>
+                        <h2>Museum-Grade Fine Art Prints</h2>
+                        <p>Hand-selected archival pigment prints on premium Japanese Kozo paper, printed using 12-color K3 pigment technology for 200+ year archival stability.</p>
+                        <p>Each print includes detailed metadata: GPS coordinates, elevation, weather conditions, and the complete story behind the capture.</p>
+                        <ul class="service-features">
+                            <li>Limited editions of 25 pieces maximum</li>
+                            <li>Hand-signed and numbered by the artist</li>
+                            <li>Custom museum-quality framing available</li>
+                            <li>Certificate of authenticity with each purchase</li>
+                            <li>Available in sizes up to 72"×48"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">The Future of AI and Data Engineering</h2>
+                <p class="justify">IDEAS’2027 looks toward the future of artificial intelligence and data engineering; fields that are transforming every aspect of science, technology, and society.<br>
+
+The conference aims to:<br>
+
+- Encourage interdisciplinary collaboration between academia and industry<br>
+
+- Promote responsible and ethical development of AI technologies<br>
+
+- Inspire the next generation of researchers and innovators<br>
+
+By fostering a culture of innovation and research excellence, IDEAS’2027 strives to contribute to Algeria’s leadership in AI and data-driven innovation.</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-timeline">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-title">IDEAS’2025 – First Edition</div>
+                        <div class="timeline-description">The first edition of the IDEAS conference was held in 2025, bringing together researchers and professionals from across Algeria to discuss innovation in data engineering and artificial intelligence. <br>
+
+This inaugural event laid the foundation for a national platform dedicated to advancing AI research, data processing, and intelligent systems.</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2026</div>
+                        <div class="timeline-title"> National Recognition and Expansion</div>
+                        <div class="timeline-description">Following the success of the first edition, IDEAS gained national recognition within Algeria’s scientific and academic community.<br>
+The 2026 edition welcomed more universities, research laboratories, and industrial partners, strengthening collaboration across the country.<br>
+
+New thematic tracks were introduced in areas such as machine learning, cybersecurity, and ethical AI.</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2027</div>
+                        <div class="timeline-title">IDEAS’2027: Towards Global Collaboration</div>
+                        <div class="timeline-description">IDEAS’2027 marks a new milestone as the conference opens to international participation, promoting global collaboration in artificial intelligence and data engineering.<br>
+
+This edition aims to inspire innovative research, foster interdisciplinary partnerships, and shape the future of AI in Algeria and beyond.</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">Future Editions</div>
+                        <div class="timeline-title">Expanding the Vision</div>
+                        <div class="timeline-description">With each new edition, IDEAS continues to evolve; expanding its reach, embracing emerging technologies, and supporting responsible AI development for the benefit of society.</div>
+                    </div>
+                </div>
+                
+                <div class="about-tech">
+                    <div class="tech-card">
+                        <div class="tech-icon">🤖</div>
+                        <div class="tech-title">AI Research Innovations</div>
+                        <div class="tech-description">Cutting-edge research in artificial intelligence presented at IDEAS’2027 explores new algorithms, architectures, and real-world applications.<br>
+From deep learning to intelligent decision-making, participants will discover how AI is transforming industries, science, and education.</div>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">🛰️</div>
+                        <div class="tech-title">Data Engineering & Analytics</div>
+                        <div class="tech-description">The conference highlights advanced data processing techniques, scalable architectures, and big data analytics frameworks.<br>
+These innovations enable efficient data storage, retrieval, and analysis across cloud and distributed environments — supporting modern AI systems.</div>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">🎯</div>
+                        <div class="tech-title">Smart Systems & Applications</div>
+                        <div class="tech-description">IDEAS’2027 also showcases smart and autonomous systems — including robotics, IoT, and intelligent sensing — designed to enhance real-world decision-making. <br>
+Researchers present applications ranging from healthcare and energy to cybersecurity and smart cities.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-futuristic">
+                <div class="stat-futuristic">
+                    <h4>47</h4>
+                    <p>National Parks</p>
+                </div>
+                <div class="stat-futuristic">
+                    <h4>2.3M</h4>
+                    <p>Miles Traveled</p>
+                </div>
+                <div class="stat-futuristic">
+                    <h4>-40°F</h4>
+                    <p>Coldest Shoot</p>
+                </div>
+                <div class="stat-futuristic">
+                    <h4>99.7%</h4>
+                    <p>Client Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="section-container">
+            <div class="section-header">
+                <h3 data-start="520" data-end="543">✉️ <strong data-start="527" data-end="543">Get In Touch</strong></h3>
+                <blockquote data-start="544" data-end="1071">
+                  <p data-start="546" data-end="674">Have a question about IDEAS&rsquo;2027, paper submission, or registration?<br data-start="614" data-end="617">
+                    The organizing committee will be happy to assist you.</p>
+                  <p data-start="681" data-end="837"><strong data-start="684" data-end="697">Location:</strong><br data-start="697" data-end="700">
+                    University of Science and Technology of Oran Mohamed BOUDIAF (USTO-MB)<br data-start="772" data-end="775">
+                    Faculty of Mathematics and Computer Science, Oran, Algeria</p>
+                  <p data-start="844" data-end="926"><strong data-start="847" data-end="857">Email:</strong> <a data-start="858" data-end="878" rel="noopener">ideas2025@univ-usto.dz<span aria-hidden="true"> </span></a></p>
+                  <p data-start="933" data-end="1001"><strong data-start="936" data-end="955">Contact Person:</strong><br data-start="955" data-end="958">
+                    Dr. Sarah Benziane, Chair of IDEAS&rsquo;2027</p>
+                  <p data-start="1008" data-end="1071"><strong data-start="1011" data-end="1028">Office Hours:</strong><br data-start="1028" data-end="1031">
+                  Sunday – Thursday: 9:00 AM – 4:00 PM</p>
+                </blockquote>
+                <h2 class="section-title">&nbsp;</h2>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your project or adventure plans..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Conference Location</h4>
+                            <p>Bir El djir<br>USTO MB</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Phone & WhatsApp</h4>
+                            <p>+213 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <p>ideas2025@univ-usto.dz</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div class="contact-details">
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Weekend tours by appointment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FF6B6B"/>
+                                    <stop offset="100%" style="stop-color:#7FFFD4"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="50" cy="50" r="45" fill="url(#footerLogoGradient)" opacity="0.1"/>
+                            <path d="M20 60 L35 40 L50 55 L65 35 L80 50" stroke="url(#footerLogoGradient)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="35" cy="40" r="3" fill="url(#footerLogoGradient)"/>
+                            <circle cx="50" cy="55" r="3" fill="url(#footerLogoGradient)"/>
+                            <circle cx="65" cy="35" r="3" fill="url(#footerLogoGradient)"/>
+                            <rect x="25" y="65" width="50" height="15" rx="7" fill="url(#footerLogoGradient)" opacity="0.3"/>
+                        </svg>
+                        <span class="footer-logo-text">IDEAS'2027</span>
+                    </div>
+                    <p class="footer-description">For inquiries related to the conference, submissions, or partnership opportunities, please reach out to the organizing committee at:<br>📧 ideas2025@uiv-usto.dz<br>
+🌐 www.usto-mb.dz</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">💼</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Workshops</a>
+                        <a href="#" class="footer-link">Registration</a>
+                        <a href="#" class="footer-link">Speakers</a>
+                        <a href="#" class="footer-link">Presentation Guidelines</a>
+                        <a href="#" class="footer-link">Conference Program</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Paper Submission</a>
+                        <a href="#" class="footer-link">Camera Ready instructions</a>
+                        <a href="#" class="footer-link">Call For Special Sessions</a>
+                        <a href="#" class="footer-link">Call For Workshop</a>
+                        <a href="#" class="footer-link">Call For Paper</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Committees</a>
+                        <a href="#" class="footer-link">Deadlines</a>
+                        <a href="#" class="footer-link">IEEE</a>
+                        <a href="#" class="footer-link">Linkedin</a>
+                        <a href="#" class="footer-link">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2026 IDEAS'2027. All rights reserved.
+                </div>
+                <div class="footer-credits">
+                    Try <a href="https://sites.google.com/view/sarahbenziane1/accueil" rel="nofollow" target="_blank">Your Timer</a>
+                     | Concepted by Sarah Benziane
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="templatemo-sleeky-scripts.js"></script>
+</body>
+</html>
