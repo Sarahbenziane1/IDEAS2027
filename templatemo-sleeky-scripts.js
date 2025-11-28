@@ -12,32 +12,32 @@ class VerticalCubeSlider {
         
         this.images = [
             {
-                url: 'images/unsplash-image-01.jpg',
-                thumb: 'images/unsplash-thumb-01.jpg',
+                url: 'unsplash-image-01.jpg',
+                thumb: 'unsplash-thumb-01.jpg',
                 title: 'Santa Cruz',
                 description: 'The Fort of Santa Cruz, overlooking the city of Oran, is a remarkable historic site offering a breathtaking panorama of the bay and the Mediterranean Sea.'
             },
             {
-                url: 'images/unsplash-image-02.jpg',
-                thumb: 'images/unsplash-thumb-02.jpg',
+                url: 'unsplash-image-02.jpg',
+                thumb: 'unsplash-thumb-02.jpg',
                 title: 'Place of 1st Novembre',
                 description: 'The Place of 1st Novembre, Oran's vibrant central square, showcases elegant Haussmannian architecture and serves as the city's historical and modern heart.'
             },
             {
-                url: 'images/unsplash-image-03.jpg',
-                thumb: 'images/unsplash-thumb-03.jpg',
+                url: 'unsplash-image-03.jpg',
+                thumb: 'unsplash-thumb-03.jpg',
                 title: 'Misty Forest',
                 description: 'Ethereal morning fog weaving through ancient trees, creating a mystical and serene woodland sanctuary.'
             },
             {
-                url: 'images/unsplash-image-04.jpg',
-                thumb: 'images/unsplash-thumb-04.jpg',
+                url: 'unsplash-image-04.jpg',
+                thumb: 'unsplash-thumb-04.jpg',
                 title: 'Ocean Waves',
                 description: 'Powerful ocean waves crashing against rugged coastlines, demonstrating the endless rhythm of the sea.'
             },
             {
-                url: 'images/unsplash-image-05.jpg',
-                thumb: 'images/unsplash-thumb-05.jpg',
+                url: 'unsplash-image-05.jpg',
+                thumb: 'unsplash-thumb-05.jpg',
                 title: 'Night Sky',
                 description: 'Brilliant stars scattered across the cosmic canvas, revealing the infinite mystery of our universe.'
             }
