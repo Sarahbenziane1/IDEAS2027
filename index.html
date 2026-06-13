@@ -1,736 +1,1619 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>National Conference on Innovation in Data Engineering and Artificial Intelligence IDEAS'2027</title>
-    <link rel="stylesheet" href="templatemo-sleeky-pro.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDEAS'2027 — National Conference on Innovation in Data Engineering & AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --navy: #0A1628;
+    --navy-mid: #112240;
+    --navy-light: #1E3A5F;
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --steel: #2D6A9F;
+    --steel-light: #4A8EC2;
+    --cream: #F8F6F1;
+    --cream-dark: #EDE9E0;
+    --text: #1A2332;
+    --text-mid: #3D5166;
+    --text-light: #6B8099;
+    --white: #FFFFFF;
+    --radius: 4px;
+    --radius-lg: 10px;
+    --shadow: 0 4px 30px rgba(10,22,40,0.10);
+    --shadow-lg: 0 12px 60px rgba(10,22,40,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,22,40,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 0 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+    transition: background 0.3s;
+  }
+
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-brand-badge {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex; gap: 2px; list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 8px 14px;
+    border-radius: var(--radius);
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); background: rgba(201,168,76,0.08); }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy) !important;
+    font-weight: 600 !important;
+    padding: 8px 18px !important;
+  }
+  .nav-cta:hover { opacity: 0.9; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    padding: 100px 5vw 80px;
+    text-align: center;
+  }
+
+  #hero-canvas {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--gold); opacity: 0.5;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 82px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .hero-title span {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(14px, 2vw, 18px);
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .hero-description {
+    font-size: 16px;
+    color: rgba(255,255,255,0.72);
+    max-width: 600px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+    position: relative;
+  }
+
+  .hero-meta {
+    display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 48px;
+    position: relative;
+  }
+  .hero-meta-item {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .hero-meta-item .label {
+    font-size: 10px; color: var(--gold); letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .hero-meta-item .value {
+    font-size: 15px; color: var(--white); font-weight: 500;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    position: relative;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy);
+    border: none;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.35); }
+
+  .btn-outline {
+    background: transparent;
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-free-badge {
+    position: relative;
+    margin-top: 40px;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 10px 22px;
+    border-radius: 100px;
+  }
+  .hero-free-badge span {
+    font-size: 13px; color: var(--gold-light); font-weight: 500;
+  }
+  .badge-dot {
+    width: 8px; height: 8px;
+    background: #4ADE80;
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.8); }
+  }
+
+  /* ── SECTIONS COMMON ── */
+  section { padding: 90px 5vw; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-title.light { color: var(--white); }
+  .section-lead {
+    font-size: 16px;
+    color: var(--text-mid);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  .section-lead.light { color: rgba(255,255,255,0.65); }
+
+  .divider {
+    width: 48px; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--steel));
+    border-radius: 2px;
+    margin: 0 auto 20px;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .about-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .about-text p {
+    color: var(--text-mid);
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .stat-card {
+    background: var(--cream);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius-lg);
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-card .desc {
+    font-size: 12px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 8px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--steel));
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -28px; top: 6px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .timeline-item .year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--gold);
+    letter-spacing: 2px; font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .timeline-item h4 {
+    font-size: 15px; font-weight: 600; color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .timeline-item p {
+    font-size: 14px; color: var(--text-light); line-height: 1.7;
+  }
+
+  /* ── TOPICS ── */
+  #topics { background: var(--cream); }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .topic-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+  }
+  .topic-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    border-color: rgba(201,168,76,0.3);
+  }
+  .topic-icon {
+    font-size: 28px; margin-bottom: 14px;
+    display: block;
+  }
+  .topic-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; font-weight: 600; color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .topic-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .tag {
+    font-size: 11px;
+    color: var(--steel);
+    background: rgba(45,106,159,0.08);
+    border: 1px solid rgba(45,106,159,0.15);
+    border-radius: 100px;
+    padding: 3px 10px;
+    font-weight: 500;
+  }
+
+  /* ── CALL FOR PAPERS ── */
+  #cfp { background: var(--navy-mid); }
+
+  .cfp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .dates-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .dates-card-header {
+    background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .dates-card-header h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 17px;
+  }
+  .date-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.2s;
+  }
+  .date-row:last-child { border-bottom: none; }
+  .date-row:hover { background: rgba(255,255,255,0.03); }
+  .date-row .event { color: rgba(255,255,255,0.75); font-size: 14px; }
+  .date-row .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; color: var(--gold-light); font-weight: 500;
+  }
+
+  .guidelines-list {
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .guideline-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    transition: border-color 0.2s;
+  }
+  .guideline-item:hover { border-color: rgba(201,168,76,0.25); }
+  .guideline-item .gi-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .guideline-item h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+  .guideline-item p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  .ieee-note {
+    margin-top: 28px;
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+  }
+  .ieee-note strong { color: var(--gold-light); }
+
+  .cfp-cta { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* ── COMMITTEES ── */
+  #committees { background: var(--cream); }
+
+  .committees-wrap { max-width: 1100px; margin: 0 auto; }
+
+  .honorary-section {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .honorary-section::after {
+    content: '★';
+    position: absolute; right: 30px; top: 20px;
+    font-size: 80px; color: rgba(201,168,76,0.08);
+    pointer-events: none;
+  }
+  .honorary-section h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold); font-size: 13px;
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 24px; font-weight: 600;
+  }
+  .honorary-grid {
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .honorary-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    flex: 1; min-width: 200px;
+    transition: background 0.2s;
+  }
+  .honorary-card:hover { background: rgba(255,255,255,0.11); }
+  .honorary-card .role {
+    font-size: 10px; color: var(--gold);
+    letter-spacing: 2px; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .honorary-card .name {
+    font-family: 'Playfair Display', serif;
+    color: var(--white); font-size: 16px; font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .leader-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .leader-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+  .leader-card .role-badge {
+    display: inline-block;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 100px;
+    margin-bottom: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .badge-president { background: rgba(201,168,76,0.12); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+  .badge-tpc { background: rgba(45,106,159,0.1); color: var(--steel); border: 1px solid rgba(45,106,159,0.2); }
+  .leader-card .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 600; color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .leader-card .affiliation {
+    font-size: 13px; color: var(--text-light); line-height: 1.5;
+  }
+
+  .tpc-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 600; color: var(--navy);
+    margin-bottom: 24px;
+  }
+  .tpc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+  }
+  .tpc-member {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px;
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius);
+    font-size: 14px; color: var(--text-mid);
+    transition: border-color 0.2s;
+  }
+  .tpc-member:hover { border-color: rgba(45,106,159,0.3); }
+  .tpc-dot {
+    width: 6px; height: 6px;
+    background: var(--steel);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .tpc-name { font-weight: 500; color: var(--navy); }
+  .tpc-affil { font-size: 12px; color: var(--text-light); }
+
+  /* ── VENUE ── */
+  #venue { background: var(--navy); }
+
+  .venue-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+  }
+  .venue-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; font-weight: 700; color: var(--white);
+    margin-bottom: 8px;
+  }
+  .venue-info .venue-desc {
+    color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .venue-details { display: flex; flex-direction: column; gap: 12px; }
+  .venue-detail {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    transition: border-color 0.2s;
+  }
+  .venue-detail:hover { border-color: rgba(201,168,76,0.2); }
+  .venue-detail .vd-icon { font-size: 20px; flex-shrink: 0; }
+  .venue-detail h4 { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 3px; }
+  .venue-detail p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  .transport-section { }
+  .transport-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--white); margin-bottom: 16px;
+  }
+  .transport-list { display: flex; flex-direction: column; gap: 10px; }
+  .transport-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius);
+    font-size: 14px; color: rgba(255,255,255,0.65);
+  }
+  .transport-item .ti-icon { font-size: 18px; flex-shrink: 0; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--cream); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .contact-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 600; color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .contact-info p { color: var(--text-mid); font-size: 15px; line-height: 1.8; margin-bottom: 28px; }
+
+  .contact-items { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px;
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius-lg);
+  }
+  .contact-item .ci-icon { font-size: 20px; flex-shrink: 0; }
+  .contact-item h4 { font-size: 12px; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+  .contact-item p { font-size: 14px; color: var(--text); }
+  .contact-item a { color: var(--steel); text-decoration: none; }
+  .contact-item a:hover { color: var(--gold); }
+
+  .office-hours {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    font-size: 14px; color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+  }
+  .office-hours h4 { color: var(--gold); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
+
+  .contact-form {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow);
+  }
+  .contact-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 600; color: var(--navy);
+    margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block; font-size: 12px; font-weight: 600;
+    color: var(--text-mid); letter-spacing: 0.5px; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--cream-dark);
+    border-radius: var(--radius);
+    font-size: 14px; font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    resize: vertical;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--steel);
+    box-shadow: 0 0 0 3px rgba(45,106,159,0.1);
+    background: var(--white);
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 14px; font-weight: 600; letter-spacing: 0.5px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: opacity 0.2s, transform 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 50px 5vw 30px;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1100px; margin: 0 auto 40px;
+  }
+  .footer-brand p {
+    color: rgba(255,255,255,0.45); font-size: 13px; line-height: 1.8;
+    margin-top: 12px; max-width: 280px;
+  }
+  .footer-col h4 {
+    font-size: 12px; font-weight: 600; color: var(--gold);
+    text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul a {
+    color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+    max-width: 1100px; margin: 0 auto;
+    font-size: 12px; color: rgba(255,255,255,0.3);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .about-grid,
+    .cfp-grid,
+    .venue-grid,
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: fixed; top: 68px; left: 0; right: 0;
+      background: var(--navy);
+      padding: 20px 5vw;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      z-index: 999;
+    }
+  }
+  @media (max-width: 600px) {
+    section { padding: 60px 5vw; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .hero-meta { gap: 20px; }
+  }
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
-        ca
-        <nav class="nav-container">
-            <a href="#home" class="logo-container">
-    <img src="Logo IDEAS'2027.jpg" alt="IDEAS'2027 Logo" style="height: 50px; width: auto;">
-    <span class="logo-text">IDEAS'2027</span>
-</a>
-            </a>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-				<li><a href="#about">About IDEAS</a></li>
-       			<li><a href="#topics">Topics</a></li>
-        		<li><a href="#cfp" class="nav-btn-highlight">Call for Papers</a></li> <li><a href="#committees">Committees</a></li>
-				<li><a href="#about" class="nav-link">Keynotes</a></li>
-        		<li><a href="#contact">Contact</a></li>
-                
-            </ul>
-            <button class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
 
-    <!-- Hero Section with Slider -->
-    <section id="home" class="hero">
-        <div class="slider-container">
-            <div class="progress-ring">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-            
-            <div class="slider-stage" id="sliderStage"></div>
-            <!-- You can edit slider images in JS file -->
-            <!-- Edit templatemo-sleeky-scripts.js for image path / image filenames -->
-            <div class="text-overlay" id="textOverlay">
-                <h2 class="slide-title" id="slideTitle">Santa Cruz</h2>
-                <p class="slide-description" id="slideDescription">The Fort of Santa Cruz, overlooking the city of Oran, is a remarkable historic site offering a breathtaking panorama of the bay and the Mediterranean Sea.</p>
-            </div>
-            
-            <button class="nav-arrow prev" id="prevArrow" aria-label="Previous"></button>
-            <button class="nav-arrow next" id="nextArrow" aria-label="Next"></button>
-            
-            <div class="controls">
-                <button class="control-btn play-pause-btn" id="playPauseBtn" title="Play/Pause">
-                    <span class="play-icon"></span>
-                    <span class="pause-icon"></span>
-                </button>
-            </div>
-            
-            <div class="dots" id="dots"></div>
-            <div class="thumbnails-container" id="thumbnails"></div>
-        </div>
-    </section>
+<!-- ══════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════ -->
+<nav id="navbar">
+  <a class="nav-brand" href="#home">
+    <div class="nav-brand-badge">IDEAS'2027</div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#topics">Topics</a></li>
+    <li><a href="#cfp">Call for Papers</a></li>
+    <li><a href="#committees">Committees</a></li>
+    <li><a href="#venue">Venue</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://cmt3.research.microsoft.com/" target="_blank" class="nav-cta">Submit Paper →</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-    <!-- Services Section -->
-    <section id="about" class="section about">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">About IDEAS'2027?</h2>
-                <p class="section-subtitle">The National Conference on Innovation in Data Engineering and AI Science (IDEAS&rsquo;2027) unites researchers, students, and professionals to exchange ideas, promote collaboration, and shape the future of AI and data science in Oran, Algeria.</p>
-            </div>
-            </\section>
-		<section id="topics" class="section services">
-            <div class="services-container">
-                <div class="services-tabs">
-                    <div class="service-tab active" data-service="photography"><img src="../../../../../Downloads/Gemini_Generated_Image_5yvlkn5yvlkn5yvl.png" width="50" height="50" alt=""/>
-                      <h3>Conference Topics</h3>
-                        <ul>
-                          <li data-start="731" data-end="770">
-                            <p data-start="733" data-end="770">Machine Learning &amp; Deep Learning</p>
-                          <li data-start="731" data-end="770">
-                            <p data-start="733" data-end="770"> Image processing &amp; Pattern Recognition</p>
-                          </li>
-                        </ul>
-                        <ul>
-                          <li data-start="773" data-end="806">
-                            <p data-start="775" data-end="806"> Cloud Computing &amp; Big Data</p>
-                          </li>
-                      </ul>
-                        <ul>
-                          <li data-start="809" data-end="853">
-                            <p data-start="811" data-end="853"> Neural Networks &amp; Intelligent Systems</p>
-                          </li>
-                        </ul>
-                        <ul>
-                          <li data-start="856" data-end="891">
-                            <p data-start="858" data-end="891">Cybersecurity &amp; Cryptography</p>
-                          </li>
-                        </ul>
-                        <ul>
-                          <li data-start="894" data-end="925">
-                            <p data-start="896" data-end="925">Internet of Things (IoT)</p>
-                          </li>
-                        </ul>
-                      <ul>
-                          <li data-start="928" data-end="956">
-                            <p data-start="930" data-end="956">Robotics &amp; Automation</p>
-                          </li>
-                        </ul>
-                        <ul>
-                          <li data-start="959" data-end="1003">
-                            <p data-start="961" data-end="1003">Mathematical Modelling &amp; Optimization</p>
-                          </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="service-tab" data-service="expeditions">
-                        <span class="service-tab-icon"><img src="../../../../../Downloads/Gemini_Generated_Image_x4e4klx4e4klx4e4.png" width="50" height="50" alt=""/></span>
-                        <h3>Workshops &amp; Tutorials</h3>
-                        <ul>
-                          <li data-start="869" data-end="914">
-                            <p data-start="871" data-end="914">Data Engineering Frameworks and Pipelines</p>
-                          </li>
-                        </ul>
-                        <ul>
-                          <li data-start="917" data-end="979">
-                            <p data-start="919" data-end="979">Deep Learning Applications in Image and Speech Recognition</p>
-                          </li>
-                        </ul>
-                      <ul>
-                          <li data-start="982" data-end="1012">
-                            <p data-start="984" data-end="1012">Responsible and Ethical AI</p>
-                          </li>
-                        </ul>
-                        <ul>
-                          <li data-start="1015" data-end="1053">
-                            <p data-start="1017" data-end="1053">AI Tools for Research and Industry</p>
-                          </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="service-tab" data-service="prints">
-                        <span class="service-tab-icon"><img src="../../../../../Downloads/Gemini_Generated_Image_7a3jpe7a3jpe7a3j.png" width="50" height="50" alt=""/></span>
-                        <h3>Proceedings &amp; Publications</h3>
-                        <p>The conference application for including the proceeding of the confeence in IEEE Xplore is submitted to IEEE Event team, and  it is under reviewing process for approval.<br data-start="782" data-end="785">
-                        Selected outstanding papers will be invited for publication in national scientific journals.</p>
-                        <p data-start="888" data-end="1024">Authors are invited to submit original and unpublished research contributions related to data engineering and artificial intelligence.</p>
-                      <ul data-start="1031" data-end="1190">
-                          <li data-start="1031" data-end="1075">
-                            <p data-start="1033" data-end="1075">IEEE and Word templates available online</p>
-                          </li>
-                          <li data-start="1078" data-end="1135">
-                            <p data-start="1080" data-end="1135">Submissions limited to 6 pages (including references)</p>
-                          </li>
-                          <li data-start="1138" data-end="1190">
-                            <p data-start="1140" data-end="1190">Review and selection by the Program Committee</p>
-                          </li>
-                      </ul>
-                  </div>
-                </div>
-                
-                <div class="services-content">
-                    <div class="service-content active" id="photography">
-                        <div class="service-content-icon">📸</div>
-                        <h2>Conference Topics</h2>
-                      <p>The <strong>IDEAS 2027 conference</strong> highlights six main axes,     reflecting its commitment to innovation in data engineering and     artificial intelligence. Relevant topics include, but <u><strong>are not limited to</strong></u>:                          </p>
-                        <ul class="service-features">
-                          <li>
-                            <a href="https://www.univ-usto.dz/ideas2025/#">Big Data Analytics and Visualization</a>
-                            <div>
-                              <div>
-                                   <ul>
-                                      - Big Data Frameworks, Data Visualization Techniques, Real-Time Analytics, Predictive Analytics Models.<br>                                             
-                                      - Business Intelligence Integration, Scalable Data Storage, IoT Data Analytics.<br>
-                                      - Ethical Data Challenges, Healthcare Data Insights, Emerging Analytics Trends.<br>
-                                    </ul>
-                                
-                              </div>
-                            </div>
-                          </li>
-                            <li>
-                               <a href="https://www.univ-usto.dz/ideas2025/#">Artificial Intelligence and Machine Learning</a>
-                              <div>
-                                <div>
-                                  <div>
-                                    <ul>
-                                      - Deep Learning Models, Reinforcement Learning Techniques, Natural Language Processing<br>
-                                      - AI in Healthcare, Computer Vision Applications, Explainable AI Methods <br>
-                                      - Ethical AI Challenges, Transfer Learning Approaches, Federated Learning Systems, AI for Cybersecurity <br>
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </li>
-                            <li><a href="https://www.univ-usto.dz/ideas2025/#">Data Engineering and Intelligent Systems</a>
-                              <div>
-                                <div>
-                                  <div>
-                                    <ul>
-                                      - Data Quality Management, Edge Computing Frameworks, Smart Decision Systems. <br>
-                                       - Data Pipeline Design,   Distributed Data Systems, Cloud Data Integration, Intelligent System   Architectures <br>
-                                - Automated Data Processing, Knowledge Representation Models, Intelligent IoT Systems.</ul></div></div>
-                              </div>
-                          </li>
-                            <li><a href="https://www.univ-usto.dz/ideas2025/#">AI Applications in Industry and Healthcare</a>
-                              <div>
-                                <div>
-                                  <div>
-                                    <ul>
-                                      - AI in Manufacturing, Predictive Maintenance Models, Smart Supply Chains, AI in Finance. <br>
-                                      - Personalized Healthcare Solutions, Medical Imaging Analysis, Drug Discovery Automation. <br>
-                                      - AI for Remote Monitoring, Healthcare Chatbots Development, Robotics in Surgery. 
-                                </ul></div></div>
-                              </div>
-                          </li>
-                            <li><a href="https://www.univ-usto.dz/ideas2025/#">Ethics, Privacy, and Security in AI and Data Science</a>
-                              <div>
-                                <div>
-                                  <div>
-                                    <ul>
-                                       - AI Ethical Frameworks, Bias in Algorithms, Data Privacy Laws, Secure Data Sharing. <br>
-                                      - AI in Cybersecurity, Explainability in AI, Responsible Data Usage. <br>
-                                      - Adversarial AI Attacks, Trustworthy AI Systems, Privacy-Preserving Models.
-                                      </ul>
-                                  </div>
-                                </div>
-                              </div>
-								<li><a href="https://www.univ-usto.dz/ideas2025/#">Emerging Trends in AI and Data Science</a>
-Science</a>
-                              <div>
-                                <div>
-                                  <div>
-                                    <ul>
-                                       - Quantum Machine Learning, Neuromorphic Computing, AI-Driven Automation, Synthetic Data Generation.                                             								             <br>
-                                      - Autonomous Systems Evolution, Edge AI Integration, Human-AI Collaboration. <br>
-                                      - AI in Blockchain, Multimodal AI Models, Sustainable AI Practices.
-                                      </ul>
-                                  </div>
-                                </div>
-                              </div>
-                        </ul>
-                    </div>
-                    
-                    <div class="service-content" id="expeditions">
-                        <div class="service-content-icon">🏔️</div>
-                        <h2>Alpine Expedition Photography</h2>
-                        <p>Multi-day backcountry expeditions to remote peaks above 12,000 feet, accessible only by helicopter or multi-day trek. Our certified IFMGA mountain guides ensure safety while capturing impossible shots.</p>
-                        <p>Each expedition is limited to 3 participants and includes professional drone pilots, survival gear, and satellite communication systems.</p>
-                        <ul class="service-features">
-                            <li>IFMGA certified mountain guides</li>
-                            <li>Professional-grade drone cinematography</li>
-                            <li>Satellite emergency communication</li>
-                            <li>Weather-sealed camera systems rated to -40°F</li>
-                            <li>Helicopter access to remote locations</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="service-content" id="prints">
-                        <div class="service-content-icon">🎨</div>
-                        <h2>Museum-Grade Fine Art Prints</h2>
-                        <p>Hand-selected archival pigment prints on premium Japanese Kozo paper, printed using 12-color K3 pigment technology for 200+ year archival stability.</p>
-                        <p>Each print includes detailed metadata: GPS coordinates, elevation, weather conditions, and the complete story behind the capture.</p>
-                        <ul class="service-features">
-                            <li>Limited editions of 25 pieces maximum</li>
-                            <li>Hand-signed and numbered by the artist</li>
-                            <li>Custom museum-quality framing available</li>
-                            <li>Certificate of authenticity with each purchase</li>
-                            <li>Available in sizes up to 72"×48"</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="home">
+  <canvas id="hero-canvas"></canvas>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">The Future of AI and Data Engineering</h2>
-                <p class="justify">IDEAS’2027 looks toward the future of artificial intelligence and data engineering; fields that are transforming every aspect of science, technology, and society.<br>
+  <div class="hero-eyebrow">National Conference · Oran, Algeria</div>
 
-The conference aims to:<br>
+  <h1 class="hero-title">
+    Innovation in<br><span>Data Engineering</span><br>&amp; Artificial Intelligence
+  </h1>
 
-- Encourage interdisciplinary collaboration between academia and industry<br>
+  <p class="hero-subtitle">IDEAS'2027 — Second Edition</p>
 
-- Promote responsible and ethical development of AI technologies<br>
+  <p class="hero-description">
+    Uniting researchers, students, and professionals to advance the frontiers of AI and data science.
+    Hosted at USTO-MB — the gateway to Algeria's next scientific breakthrough.
+  </p>
 
-- Inspire the next generation of researchers and innovators<br>
-
-By fostering a culture of innovation and research excellence, IDEAS’2027 strives to contribute to Algeria’s leadership in AI and data-driven innovation.</p>
-            </div>
-            
-            <div class="about-grid">
-                <div class="about-timeline">
-                    <div class="timeline-line"></div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-year">2025</div>
-                        <div class="timeline-title">IDEAS’2025 – First Edition</div>
-                        <div class="timeline-description">The first edition of the IDEAS conference was held in 2025, bringing together researchers and professionals from across Algeria to discuss innovation in data engineering and artificial intelligence. <br>
-
-This inaugural event laid the foundation for a national platform dedicated to advancing AI research, data processing, and intelligent systems.</div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-year">2026</div>
-                        <div class="timeline-title"> National Recognition and Expansion</div>
-                        <div class="timeline-description">Following the success of the first edition, IDEAS gained national recognition within Algeria’s scientific and academic community.<br>
-The 2026 edition welcomed more universities, research laboratories, and industrial partners, strengthening collaboration across the country.<br>
-
-New thematic tracks were introduced in areas such as machine learning, cybersecurity, and ethical AI.</div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-year">2027</div>
-                        <div class="timeline-title">IDEAS’2027: Towards Global Collaboration</div>
-                        <div class="timeline-description">IDEAS’2027 marks a new milestone as the conference opens to international participation, promoting global collaboration in artificial intelligence and data engineering.<br>
-
-This edition aims to inspire innovative research, foster interdisciplinary partnerships, and shape the future of AI in Algeria and beyond.</div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-year">Future Editions</div>
-                        <div class="timeline-title">Expanding the Vision</div>
-                        <div class="timeline-description">With each new edition, IDEAS continues to evolve; expanding its reach, embracing emerging technologies, and supporting responsible AI development for the benefit of society.</div>
-                    </div>
-                </div>
-                
-                <div class="about-tech">
-                    <div class="tech-card">
-                        <div class="tech-icon">🤖</div>
-                        <div class="tech-title">AI Research Innovations</div>
-                        <div class="tech-description">Cutting-edge research in artificial intelligence presented at IDEAS’2027 explores new algorithms, architectures, and real-world applications.<br>
-From deep learning to intelligent decision-making, participants will discover how AI is transforming industries, science, and education.</div>
-                    </div>
-                    
-                    <div class="tech-card">
-                        <div class="tech-icon">🛰️</div>
-                        <div class="tech-title">Data Engineering & Analytics</div>
-                        <div class="tech-description">The conference highlights advanced data processing techniques, scalable architectures, and big data analytics frameworks.<br>
-These innovations enable efficient data storage, retrieval, and analysis across cloud and distributed environments — supporting modern AI systems.</div>
-                    </div>
-                    
-                    <div class="tech-card">
-                        <div class="tech-icon">🎯</div>
-                        <div class="tech-title">Smart Systems & Applications</div>
-                        <div class="tech-description">IDEAS’2027 also showcases smart and autonomous systems — including robotics, IoT, and intelligent sensing — designed to enhance real-world decision-making. <br>
-Researchers present applications ranging from healthcare and energy to cybersecurity and smart cities.</div>
-                    </div>
-                </div>
-            </div>
-
-			<section id="cfp" class="section about" style="background-color: #ffffff; padding: 80px 0;">
-<div class="section-container">
-    <div class="section-header">
-        <h2 class="section-title" style="color: #222; font-family: sans-serif;">Call for Papers</h2>
-        <p class="section-subtitle" style="color: #666; margin-bottom: 15px;">Contribution details and key deadlines for IDEAS'2027</p>
-        
-        <a href="CFP_IDEAS_2027.pdf" download style="color: #00629b; font-weight: bold; text-decoration: underline;">
-            📥 Download the Call for Papers (PDF)
-        </a>
-		<p><b>"Accepted papers will be submitted for possible inclusion in IEEE Xplore, subject to meeting IEEE Xplore’s scope and quality requirements."</p>
-			Only papers that fall strictly within IEEE’s technical scope are eligible for Xplore publication.
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="label">Conference Dates</span>
+      <span class="value">April 17–18, 2027</span>
     </div>
-</div>
-				
-			            <div class="about-grid">
-                <div class="about-tech">
-                    <div class="tech-card" style="background: #fdfdfd; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                        <div class="tech-icon">📄</div>
-                        <div class="tech-title" style="color: #222;">Submission Guidelines</div>
-                        <div class="tech-description" style="color: #444;">
-                            Authors are invited to submit original research papers (up to 6 pages). 
-                            All submissions must follow the IEEE format and will be subject to a double-blind peer-review process.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-tech">
-                    <div class="tech-card" style="background: #fdfdfd; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                        <div class="tech-icon">📅</div>
-                        <div class="tech-title" style="color: #222;">Important Dates</div>
-                        <div class="tech-description" style="color: #444; line-height: 1.8;">
-                            <strong>Submission Deadline:</strong> November 30, 2026<br>
-                            <strong>Notification of Acceptance:</strong> March 05, 2027<br>
-							<strong>Camera Ready deadline:</strong> March 20, 2027<br>
-                            <strong>Conference Dates:</strong> April 17-18, 2027
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="margin-top: 50px; padding: 20px; border-top: 1px solid #eee; text-align: center;">
-                <p style="font-size: 0.85em; color: #888; max-width: 800px; margin: 0 auto; line-height: 1.6;">
-                    ACKNOWLEDGMENT: The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
-                </p>
-                <br>
-                <a href="https://cmt3.research.microsoft.com/" target="_blank" style="text-decoration:none; background: linear-gradient(135deg, #FF6B6B, #7FFFD4); color: #222; padding: 12px 30px; border-radius: 50px; font-weight: bold; display: inline-block;">
-                    Submit via Microsoft CMT
-                </a>
-            </div>
-        </div>
-    </section>
-			
-			
-			<!-- Committees Section -->
-<section id="committees" class="section committees">
-    <div class="section-container">
-        <div class="section-header">
-            <h2 class="section-title">Committees</h2>
-            <p class="section-subtitle">The organizing structure of IDEAS’2027</p>
-        </div>
-
-        <div class="committee-card">
-		 <h3 class="committee-title">General Chair</h3>
-            <ul class="committee-list">
-					<li>Pr. Emeritus Ahmed Hamou</li>
-					<li>Pr. Bachir Djebbar</li>
-			
-            <h3 class="committee-title">General Chair</h3>
-            <ul class="committee-list">
-                <li>Dr. Sarah Benziane, USTO-MB</li>
-            </ul>
-        </div>
-
-<div class="committee-card">
-  <h3 class="committee-title">Program Committee</h3>
-    <ul class="committee-list">
-        <li>Dr. Sarah Benziane – USTO MB, Algeria</li>
-        <li>Dr. Karima Belmabrouk - USTO MB, Algeria</li>
-		<li>Pr Abdellah Kouzou - University of Msila, Algeria</li>
-		<li>Pr Bilal Attalah - University of MSila, Algeria</li>
-		<li>Pr. Abdelhamid Iratni - University of Bordj Bou Arreridj, Algeria</li>
-		<li>Dr. Selma khouri - ESI Alger, Algeria</li>
-		<li>Dr. Mahamed Abdelmadjid Allali - University of Chlef, Algeria</li>
-        <li>Dr.. Asmaa Boughrara– USTO MB, Algeria</li>
-        <li>Pr. Meftah Boudjelal – University of Mascara, Algeria</li>
-        <li>Pr. Abdelghani Djebbari – University of Tlemcen, Algeria</li>
-        <li>Dr. Nassima Mellal - University of Oum El Boughi, Algeria</li>
-                <li>Dr. Abderahmane Bendahmane - USTO MB, Algeria</li>
-		<li>Pr. Fateh Mbarek Oudina -  , University of Skikda, Algeria</li>
-		<li>Pr. Hachem Slimani - University of Bejaia, Algeria</li>
-		<li>Dr. Souad Ougouti, USTO MB, Algeria</li>
-		<li>Pr. Mustapha BOUAKKAZ - , University of Laghouat, Algeria</li>
-		<li>Pr. Hayet Yedjour, USTO MB, Algeria</li>
-		<li>Pr. Haitham A Abu-Rub - Smart Grid, Hamad  <span lang="EN-US">B</span>in Khalifa University</li>
-		<li>Dr. Abderahmane Bendahmane, USTO MB, Algeria</li>
-		<li>Pr. Abdelatif Hassini - Image Processing, University of Oran 2, Algeria</li>
-		<li>Dr. Fatima Zohra Boudjella - University of Ain Temouchent, Algeria</li>
-		<li>Pr. Salim Chitroub - Information security, USTHB, Algeria</li>
-		<li>Dr. Soumeya Zerabi - University of Constantine 2, Algeria</li>
-		<li>Pr. Farid YKHLEF - University of Blida, Algeria</li>
-		<li>Dr. Aicha Aggoune - University of Guelma, Algeria</li>
-		<li>Pr. Amina chentir - Signal Processing, University of Blida, Algeria</li>
-		<li>Dr. Hadjer Didouh - University of Chlef, Algeria</li>
-		<li>Pr. Abdelouahab Lefkir - ENSTP, Algeria</li>
-		<li>Pr. Saad Harous - Distributed compting, University of Sharjah</li>
-		<li>Dr. Nassiba Wafa ABDERRAHIM - ENSTTIC, Algeria
-		  
-		</li>
-		<li>Dr. Mohamed Lamine Messai - University of Lyon 2, France</li>
-		<li>Dr. Hayat Bendoukha - USTO MB, Algeria</li>
-		<li>Dr. Mahmoud Zennaki - USTO MB, Algeria</li>
-		<li>Dr. Abdelkrim Mebarki - USTO MB, Algeria</li>
-		<li>Pr. Abou El Hassan Benyamina - University of Oran 1, Algeria</li>
-		<li>Pr. Kamal Benhaoua - University of Mascara, Algeria</li>
-		<li>Pr. Salim Ziani - University of Constantine 1, Algeria</li>
-		<li>Dr. Hicham Reguieg - USTO MB, Algeria</li>
-		<li>Pr. Nacira Ghoualmi-Zine - University of Annaba, Algeria</li>
-		<li>Pr. Ahmed Rouane - ENSTTIC, Algeria</li>
-		<li>Dr. Abdallah Bensalloua Charef - University of Mostaganem, Algeria</li>
-		<li>Pr. Sid Ahmed Benchiha - University of Sidi Bel Abbes, Algeria</li>
-		<li>Dr. Nawal Sad Houari - USTO MB, Algeria</li>
-		<li>Dr. Belkacem Khaldi - ESI Sidi Bel abbes, Algeria</li>
-		<li>Pr. Abdelkader Ghazli - University of Bechar, Algeria</li>
-		<li>Pr. Mustapha Merah - University of Mostaganem, Algeria</li>
-		<li>Pr. Faycal Ykhlef - CDTA, Algeria</li>
-		<li>Pr. Yassine Hadjadj Aoul - University of Rennes, France</li>
-		<li>Pr. Maryna Kolysnik - National Aerospace University &quot;Kharkiv Aviation Institute&quot;, Ukraine</li>
-		<li></li>
-		<li></li>
-		<li></li>
-    </ul>
+    <div class="hero-meta-item">
+      <span class="label">Location</span>
+      <span class="value">USTO-MB, Oran</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">Submission Deadline</span>
+      <span class="value">Nov 30, 2026</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">Proceedings</span>
+      <span class="value">IEEE Xplore (pending)</span>
+    </div>
   </div>
 
-        <div class="committee-card">
-            <h3 class="committee-title">Organizing Committee</h3>
-            <ul class="committee-list">
-                <li>Dr. Sarah Benziane– Logistics</li>
-                <li>Dr. Karima Belmabrouk - Communication</li>
-                <li>Dr. Asmaa Boughrara – Communication</li>
-                <li>Dr. Nawal Sad Houari - Communication</li>
-                <li>Dr Souad Ougouti – Technical Support</li>
-                <li>Dr Hicham Reguieg - Technical Support</li>
-            </ul>
-        </div>
-    </div>
+  <div class="hero-actions">
+    <a href="https://cmt3.research.microsoft.com/" target="_blank" class="btn-primary">Submit Your Paper →</a>
+    <a href="#cfp" class="btn-outline">View Call for Papers</a>
+  </div>
+
+  <div class="hero-free-badge">
+    <div class="badge-dot"></div>
+    <span>Registration is free — open to all researchers and students</span>
+  </div>
 </section>
 
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-eyebrow">About the Conference</span>
+    <h2 class="section-title">What is IDEAS'2027?</h2>
+    <div class="divider"></div>
+    <p class="section-lead">A national platform dedicated to advancing AI research, data processing, and intelligent systems — now opening to international collaboration.</p>
+  </div>
 
-            <div class="stats-futuristic">
-                <div class="stat-futuristic">
-                    <h4>47</h4>
-                    <p>National Parks</p>
-                </div>
-                <div class="stat-futuristic">
-                    <h4>2.3M</h4>
-                    <p>Miles Traveled</p>
-                </div>
-                <div class="stat-futuristic">
-                    <h4>-40°F</h4>
-                    <p>Coldest Shoot</p>
-                </div>
-                <div class="stat-futuristic">
-                    <h4>99.7%</h4>
-                    <p>Client Satisfaction</p>
-                </div>
-            </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h3>Advancing Algeria's AI Ecosystem</h3>
+      <p>The National Conference on Innovation in Data Engineering and AI Science (IDEAS'2027) unites researchers, students, and professionals to exchange ideas, promote collaboration, and shape the future of AI and data science.</p>
+      <p>Held in Oran at USTO-MB, IDEAS'2027 marks a new milestone as the conference opens to international participation, promoting global collaboration in artificial intelligence and data engineering.</p>
+      <p>The conference aims to encourage interdisciplinary collaboration between academia and industry, promote responsible and ethical development of AI technologies, and inspire the next generation of researchers and innovators.</p>
+
+      <div class="timeline" style="margin-top:32px">
+        <div class="timeline-item">
+          <div class="year">2025</div>
+          <h4>IDEAS'2025 — First Edition</h4>
+          <p>The inaugural edition brought together researchers and professionals from across Algeria, laying the foundation for a national AI platform.</p>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="section-container">
-            <div class="section-header">
-                <h3 data-start="520" data-end="543">✉️ <strong data-start="527" data-end="543">Get In Touch</strong></h3>
-                <blockquote data-start="544" data-end="1071">
-                  <p data-start="546" data-end="674">Have a question about IDEAS&rsquo;2027, paper submission, or registration?<br data-start="614" data-end="617">
-                    The organizing committee will be happy to assist you.</p>
-                  <p data-start="681" data-end="837"><strong data-start="684" data-end="697">Location:</strong><br data-start="697" data-end="700">
-                    University of Science and Technology of Oran Mohamed BOUDIAF (USTO-MB)<br data-start="772" data-end="775">
-                    Faculty of Mathematics and Computer Science, Oran, Algeria</p>
-                  <p data-start="844" data-end="926"><strong data-start="847" data-end="857">Email:</strong> <a data-start="858" data-end="878" rel="noopener">ideas2025@univ-usto.dz<span aria-hidden="true"> </span></a></p>
-                  <p data-start="933" data-end="1001"><strong data-start="936" data-end="955">Contact Person:</strong><br data-start="955" data-end="958">
-                    Dr. Sarah Benziane, Chair of IDEAS&rsquo;2027</p>
-                  <p data-start="1008" data-end="1071"><strong data-start="1011" data-end="1028">Office Hours:</strong><br data-start="1028" data-end="1031">
-                  Sunday – Thursday: 9:00 AM – 4:00 PM</p>
-                </blockquote>
-                <h2 class="section-title">&nbsp;</h2>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Tell us about your project or adventure plans..." required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
-                </div>
-                
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-details">
-                            <h4>Conference Location</h4>
-                            <p>Bir El djir<br>USTO MB</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-details">
-                            <h4>Phone & WhatsApp</h4>
-                            <p>+213 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-details">
-                            <h4>Email Address</h4>
-                            <p>ideas2025@univ-usto.dz</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">🕐</div>
-                        <div class="contact-details">
-                            <h4>Business Hours</h4>
-                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Weekend tours by appointment</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="timeline-item">
+          <div class="year">2026</div>
+          <h4>National Recognition &amp; Expansion</h4>
+          <p>New thematic tracks in machine learning, cybersecurity, and ethical AI. More universities, labs, and industrial partners joined.</p>
         </div>
-    </section>
-
-<section id="venue" class="section venue" style="padding: 60px 0; background-color: #fff;">
-    <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: 40px;">
-            <h2 class="section-title" style="color: #222; font-size: 2.5em;">Conference Venue</h2>
-            <p class="section-subtitle" style="color: #666;">Practical information for your visit to USTO-MB, Oran</p>
+        <div class="timeline-item">
+          <div class="year">2027</div>
+          <h4>Towards Global Collaboration</h4>
+          <p>IDEAS'2027 opens to international participation, fostering interdisciplinary partnerships across borders.</p>
         </div>
-
-        <div class="venue-content" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
-            
-            <div class="venue-info" style="flex: 1; min-width: 300px; line-height: 1.8;">
-                <h3 style="color: #00629b; border-bottom: 2px solid #00629b; display: inline-block; margin-bottom: 20px;">Main Locations</h3>
-                
-                <p>📍 <strong>General Hosting:</strong> IDEAS 2027 will be held at the <strong>Computer Science Department</strong> building, USTO-MB, Oran, Algeria.</p>
-                
-                <p>🏛️ <strong>Opening Ceremony:</strong> The official opening and first-day registrations will take place at the <strong>Auditorium</strong> or the <strong>Central Library</strong> building (Bibliothèque Centrale).</p>
-                
-                <p>☕ <strong>Oral Sessions & Breaks:</strong> Technical sessions and coffee breaks will be hosted within the <strong>Electrical Engineering</strong> and <strong>Computer Science</strong> facilities.</p>
-                
-                <p>🍽️ <strong>Catering:</strong> Luncheons and gala dinners will be held at the designated university restaurant areas near the main auditorium.</p>
-
-                <h3 style="color: #00629b; margin-top: 30px;">How to get there</h3>
-                <p>✈️ <strong>From Oran Ahmed Ben Bella Airport (ORN):</strong> The airport is approximately 10-12 km from the campus (about 15-20 minutes by car).</p>
-                
-                <p>🚗 <strong>Local Transport:</strong> <strong>Yassir</strong> and <strong>Heetch</strong> are the most reliable ride-hailing apps in Oran. Ensure you have a connected smartphone to use these services easily.</p>
-                
-                <p>🚋 <strong>Tramway:</strong> The USTO-MB campus is directly served by the Oran Tramway (Station: <strong>USTO</strong>), which is a very convenient way to travel from the city center.</p>
-            </div>
-
-            <div class="venue-map" style="flex: 1; min-width: 300px; background: #f4f4f4; padding: 20px; border-radius: 10px; text-align: center;">
-                <h3 style="margin-bottom: 20px;">Find us on the map</h3>
-                <div style="background: #ddd; height: 250px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-                    <span style="font-size: 50px;">📍</span>
-                </div>
-                <a href="https://maps.app.goo.gl/YourMapLinkHere" target="_blank" class="btn-map" style="background: #00629b; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
-                    View on Google Maps
-                </a>
-                <p style="margin-top: 15px; font-size: 0.9em; color: #777;">University of Science and Technology of Oran Mohamed Boudiaf (USTO-MB), BP 1505, El M'naouer, Oran.</p>
-            </div>
-
-        </div>
+      </div>
     </div>
+
+    <div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="num">2nd</div>
+          <div class="desc">Edition</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">6</div>
+          <div class="desc">Research Axes</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">50+</div>
+          <div class="desc">TPC Members</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">Free</div>
+          <div class="desc">Registration</div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px; background:linear-gradient(135deg,var(--navy),var(--navy-light)); border-radius:var(--radius-lg); padding:28px; color:rgba(255,255,255,0.7); font-size:14px; line-height:1.9;">
+        <div style="font-family:'Playfair Display',serif; font-size:17px; color:var(--gold); margin-bottom:12px; font-weight:600;">Fort Santa Cruz</div>
+        <p>Overlooking the city of Oran, the historic Fort of Santa Cruz offers a breathtaking panorama of the bay and the Mediterranean Sea — a fitting backdrop for a conference shaping the future of technology in Algeria.</p>
+        <div style="margin-top:14px; font-size:12px; color:var(--gold); letter-spacing:1px; text-transform:uppercase;">📍 Oran, Algeria</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#FF6B6B"/>
-                                    <stop offset="100%" style="stop-color:#7FFFD4"/>
-                                </linearGradient>
-                            </defs>
-                            <circle cx="50" cy="50" r="45" fill="url(#footerLogoGradient)" opacity="0.1"/>
-                            <path d="M20 60 L35 40 L50 55 L65 35 L80 50" stroke="url(#footerLogoGradient)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="35" cy="40" r="3" fill="url(#footerLogoGradient)"/>
-                            <circle cx="50" cy="55" r="3" fill="url(#footerLogoGradient)"/>
-                            <circle cx="65" cy="35" r="3" fill="url(#footerLogoGradient)"/>
-                            <rect x="25" y="65" width="50" height="15" rx="7" fill="url(#footerLogoGradient)" opacity="0.3"/>
-                        </svg>
-                        <span class="footer-logo-text">IDEAS'2027</span>
-                    </div>
-                    <p class="footer-description">For inquiries related to the conference, submissions, or partnership opportunities, please reach out to the organizing committee at:<br>📧 ideas2025@uiv-usto.dz<br>
-🌐 www.usto-mb.dz</p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link">📘</a>
-                        <a href="#" class="social-link">📷</a>
-                        <a href="#" class="social-link">🐦</a>
-                        <a href="#" class="social-link">💼</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <div class="footer-links">
-                        <a href="#" class="footer-link">Workshops</a>
-                        <a href="#" class="footer-link">Registration</a>
-                        <a href="#" class="footer-link">Speakers</a>
-                        <a href="#" class="footer-link">Presentation Guidelines</a>
-                        <a href="#" class="footer-link">Conference Program</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <div class="footer-links">
-                        <a href="#" class="footer-link">Paper Submission</a>
-                        <a href="#" class="footer-link">Camera Ready instructions</a>
-                        <a href="#" class="footer-link">Call For Special Sessions</a>
-                        <a href="#" class="footer-link">Call For Workshop</a>
-                        <a href="#" class="footer-link">Call For Paper</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <div class="footer-links">
-                        <a href="#" class="footer-link">Committees</a>
-                        <a href="#" class="footer-link">Deadlines</a>
-                        <a href="#" class="footer-link">IEEE</a>
-                        <a href="#" class="footer-link">Linkedin</a>
-                        <a href="#" class="footer-link">Facebook</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    © 2026 IDEAS'2027. All rights reserved.
-                </div>
-                <div class="footer-credits">
-                    Try <a href="https://sites.google.com/view/sarahbenziane1/accueil" rel="nofollow" target="_blank">Your Timer</a>
-                     | Concepted by Sarah Benziane
-                </div>
-            </div>
-        </div>
-    </footer>
+<!-- ══════════════════════════════════════
+     TOPICS
+══════════════════════════════════════ -->
+<section id="topics">
+  <div class="section-header">
+    <span class="section-eyebrow">Research Themes</span>
+    <h2 class="section-title">Conference Topics</h2>
+    <div class="divider"></div>
+    <p class="section-lead">IDEAS'2027 highlights six main axes. Topics include, but are not limited to:</p>
+  </div>
 
-    <script src="templatemo-sleeky-scripts.js"></script>
+  <div class="topics-grid">
+    <div class="topic-card">
+      <span class="topic-icon">📊</span>
+      <h3>Big Data Analytics &amp; Visualization</h3>
+      <div class="topic-tags">
+        <span class="tag">Data Frameworks</span>
+        <span class="tag">Real-Time Analytics</span>
+        <span class="tag">Predictive Modeling</span>
+        <span class="tag">BI Integration</span>
+        <span class="tag">Scalable Storage</span>
+        <span class="tag">IoT Data Analytics</span>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <span class="topic-icon">🤖</span>
+      <h3>Artificial Intelligence &amp; Machine Learning</h3>
+      <div class="topic-tags">
+        <span class="tag">Deep Learning</span>
+        <span class="tag">Reinforcement Learning</span>
+        <span class="tag">NLP</span>
+        <span class="tag">Computer Vision</span>
+        <span class="tag">Explainable AI</span>
+        <span class="tag">Federated Learning</span>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <span class="topic-icon">⚙️</span>
+      <h3>Data Engineering &amp; Intelligent Systems</h3>
+      <div class="topic-tags">
+        <span class="tag">Edge Computing</span>
+        <span class="tag">Data Pipelines</span>
+        <span class="tag">Cloud Integration</span>
+        <span class="tag">Knowledge Representation</span>
+        <span class="tag">Smart IoT</span>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <span class="topic-icon">🏥</span>
+      <h3>AI Applications in Industry &amp; Healthcare</h3>
+      <div class="topic-tags">
+        <span class="tag">AI in Manufacturing</span>
+        <span class="tag">Medical Imaging</span>
+        <span class="tag">Predictive Maintenance</span>
+        <span class="tag">Drug Discovery</span>
+        <span class="tag">Surgical Robotics</span>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <span class="topic-icon">🔒</span>
+      <h3>Ethics, Privacy &amp; Security in AI</h3>
+      <div class="topic-tags">
+        <span class="tag">AI Ethics</span>
+        <span class="tag">Algorithm Bias</span>
+        <span class="tag">Data Privacy</span>
+        <span class="tag">Adversarial AI</span>
+        <span class="tag">Trustworthy AI</span>
+        <span class="tag">Cybersecurity</span>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <span class="topic-icon">🔭</span>
+      <h3>Emerging Trends in AI &amp; Data Science</h3>
+      <div class="topic-tags">
+        <span class="tag">Quantum ML</span>
+        <span class="tag">Neuromorphic Computing</span>
+        <span class="tag">Autonomous Systems</span>
+        <span class="tag">Edge AI</span>
+        <span class="tag">Multimodal AI</span>
+        <span class="tag">Sustainable AI</span>
+      </div>
+	  <div class="topic-card">
+  <span class="topic-icon">🧠</span>
+  <h3>Generative AI &amp; Foundation Models</h3>
+  <div class="topic-tags">
+    <span class="tag">Large Language Models</span>
+    <span class="tag">Diffusion Models</span>
+    <span class="tag">Prompt Engineering</span>
+    <span class="tag">Multimodal AI</span>
+    <span class="tag">RAG Systems</span>
+    <span class="tag">AI Agents</span>
+    <span class="tag">Fine-Tuning</span>
+    <span class="tag">Synthetic Data</span>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CALL FOR PAPERS
+══════════════════════════════════════ -->
+<section id="cfp">
+  <div class="section-header">
+    <span class="section-eyebrow">Submissions</span>
+    <h2 class="section-title light">Call for Papers</h2>
+    <div class="divider"></div>
+    <p class="section-lead light">Contribute original research to IDEAS'2027. Accepted papers will be considered for IEEE Xplore inclusion.</p>
+  </div>
+
+  <div class="cfp-grid">
+
+    <!-- Left column: dates + CTA -->
+    <div>
+      <div class="dates-card">
+        <div class="dates-card-header">
+          <h3>📅 Important Dates</h3>
+        </div>
+        <div class="date-row">
+          <span class="event">Submission Deadline</span>
+          <span class="date">Nov 30, 2026</span>
+        </div>
+        <div class="date-row">
+          <span class="event">Notification of Acceptance</span>
+          <span class="date">Mar 05, 2027</span>
+        </div>
+        <div class="date-row">
+          <span class="event">Camera-Ready Deadline</span>
+          <span class="date">Mar 20, 2027</span>
+        </div>
+        <div class="date-row">
+          <span class="event">Conference</span>
+          <span class="date">Jul 04–05, 2027</span>
+        </div>
+      </div>
+
+      <div class="ieee-note">
+        <strong>IEEE Xplore:</strong> Accepted papers will be submitted for possible inclusion in IEEE Xplore, subject to meeting IEEE's scope and quality requirements. Only papers that fall strictly within IEEE's technical scope are eligible.
+      </div>
+
+      <div class="cfp-cta">
+        <a href="https://cmt3.research.microsoft.com/" target="_blank" class="btn-primary" style="flex:1; justify-content:center;">Submit via CMT →</a>
+        <a href="https://sarahbenziane1.github.io/IDEAS2027/CFP_IDEAS_2027.pdf" target="_blank" class="btn-outline" style="flex:1; justify-content:center;">Download CFP (PDF)</a>
+      </div>
+
+      <p style="margin-top:16px; font-size:12px; color:rgba(255,255,255,0.35); line-height:1.7;">
+        Submission management powered by Microsoft CMT — provided free of charge by Microsoft.
+      </p>
+    </div>
+
+    <!-- Right column: guidelines -->
+    <div class="guidelines-list">
+      <div class="guideline-item">
+        <div class="gi-icon">📄</div>
+        <div>
+          <h4>Original Research</h4>
+          <p>Submit original, unpublished research contributions not under review at any other venue simultaneously.</p>
+        </div>
+      </div>
+      <div class="guideline-item">
+        <div class="gi-icon">📐</div>
+        <div>
+          <h4>Page Limit</h4>
+          <p>Manuscripts are limited to 6 pages including references, formatted using the IEEE conference template.</p>
+        </div>
+      </div>
+      <div class="guideline-item">
+        <div class="gi-icon">🎭</div>
+        <div>
+          <h4>Double-Blind Review</h4>
+          <p>All submissions undergo a rigorous double-blind peer-review process by the Program Committee.</p>
+        </div>
+      </div>
+      <div class="guideline-item">
+        <div class="gi-icon">📋</div>
+        <div>
+          <h4>IEEE Format</h4>
+          <p>Use the official IEEE conference template. Both IEEE and Word formats are available online.</p>
+        </div>
+      </div>
+      <div class="guideline-item">
+        <div class="gi-icon">🏆</div>
+        <div>
+          <h4>Selected Publications</h4>
+          <p>Outstanding accepted papers will be invited for extended publication in national scientific journals.</p>
+        </div>
+      </div>
+      <div class="guideline-item">
+        <div class="gi-icon">🎓</div>
+        <div>
+          <h4>Workshops &amp; Tutorials</h4>
+          <p>Special sessions on Deep Learning, Responsible AI, Data Engineering Frameworks, and AI Tools for Research.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     COMMITTEES
+══════════════════════════════════════ -->
+<section id="committees">
+  <div class="section-header">
+    <span class="section-eyebrow">Organization</span>
+    <h2 class="section-title">Conference Committees</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="committees-wrap">
+
+    <!-- Honorary Chairs -->
+    <div class="honorary-section">
+      <h3>Honorary Chairs</h3>
+      <div class="honorary-grid">
+        <div class="honorary-card">
+          <div class="role">Honorary Chair</div>
+          <div class="name">Pr. Emeritus Ahmed Hamou</div>
+        </div>
+        <div class="honorary-card">
+          <div class="role">Honorary Chair</div>
+          <div class="name">Pr. Mounir Tlemsani</div>
+        </div>
+        <div class="honorary-card">
+          <div class="role">Honorary Chair</div>
+          <div class="name">Pr. Bachir Djebbar</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leadership -->
+    <div class="leadership-grid">
+      <div class="leader-card">
+        <span class="role-badge badge-president">Conference President</span>
+        <div class="name">Dr. Sarah Benziane</div>
+        <div class="affiliation">USTO-MB, Oran · Algeria<br>Chair of IDEAS'2027</div>
+      </div>
+      <div class="leader-card">
+        <span class="role-badge badge-tpc">TPC Chair</span>
+        <div class="name">Pr. Yassine Hadjadj Aoul</div>
+        <div class="affiliation">University of Rennes · France</div>
+      </div>
+      <div class="leader-card">
+        <span class="role-badge badge-tpc">TPC Co-Chair</span>
+        <div class="name">Dr. Sarah Benziane</div>
+        <div class="affiliation">USTO-MB, Oran · Algeria</div>
+      </div>
+    </div>
+
+    <!-- Organizing Committee -->
+    <div class="tpc-section" style="margin-bottom:40px">
+      <h3>Organizing Committee</h3>
+      <div class="tpc-grid">
+        <div class="tpc-member"><div class="tpc-dot" style="background:var(--gold)"></div><div><div class="tpc-name">Dr. Sarah Benziane</div><div class="tpc-affil">Logistics · USTO-MB</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot" style="background:var(--gold)"></div><div><div class="tpc-name">Dr. Karima Belmabrouk</div><div class="tpc-affil">Communication · USTO-MB</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot" style="background:var(--gold)"></div><div><div class="tpc-name">Dr. Asmaa Boughrara</div><div class="tpc-affil">Communication · USTO-MB</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot" style="background:var(--gold)"></div><div></div></div>
+        <div class="tpc-member"><div class="tpc-dot" style="background:var(--gold)"></div><div><div class="tpc-name">Dr. Souad Ougouti</div><div class="tpc-affil">Technical Support · USTO-MB</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot" style="background:var(--gold)"></div><div></div></div>
+      </div>
+    </div>
+
+    <!-- TPC -->
+    <div class="tpc-section">
+      <h3>Technical Program Committee</h3>
+      <div class="tpc-grid">
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Yassine Hadjadj Aoul</div><div class="tpc-affil">University of Rennes, France</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Karima Belmabrouk</div><div class="tpc-affil">USTO-MB, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Abdellah Kouzou</div><div class="tpc-affil">University of Msila, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Bilal Attalah</div><div class="tpc-affil">University of MSila, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Abdelhamid Iratni</div><div class="tpc-affil">University of BBA, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Selma Khouri</div><div class="tpc-affil">ESI Alger, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Mohamed Abdelmadjid Allali</div><div class="tpc-affil">University of Chlef, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Asmaa Boughrara</div><div class="tpc-affil">USTO-MB, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Meftah Boudjelal</div><div class="tpc-affil">University of Mascara, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Abdelghani Djebbari</div><div class="tpc-affil">University of Tlemcen, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Nassima Mellal</div><div class="tpc-affil">University of Oum El Bouaghi, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Abderahmane Bendahmane</div><div class="tpc-affil">USTO-MB, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Fateh Mbarek Oudina</div><div class="tpc-affil">University of Skikda, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Hachem Slimani</div><div class="tpc-affil">University of Bejaia, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Souad Ougouti</div><div class="tpc-affil">USTO-MB, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Mustapha Bouakkaz</div><div class="tpc-affil">University of Laghouat, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Hayet Yedjour</div><div class="tpc-affil">USTO-MB, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Haitham A. Abu-Rub</div><div class="tpc-affil">Hamad Bin Khalifa University, Qatar</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Abdelatif Hassini</div><div class="tpc-affil">University of Oran 2, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Fatima Zohra Boudjella</div><div class="tpc-affil">University of Ain Temouchent, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Salim Chitroub</div><div class="tpc-affil">USTHB, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Soumeya Zerabi</div><div class="tpc-affil">University of Constantine 2, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Farid Ykhlef</div><div class="tpc-affil">University of Blida / CDTA, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Aicha Aggoune</div><div class="tpc-affil">University of Guelma, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Amina Chentir</div><div class="tpc-affil">University of Blida, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Hadjer Didouh</div><div class="tpc-affil">University of Chlef, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Abdelouahab Lefkir</div><div class="tpc-affil">ENSTP, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Saad Harous</div><div class="tpc-affil">University of Sharjah, UAE</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Nassiba Wafa Abderrahim</div><div class="tpc-affil">ENSTTIC, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Mohamed Lamine Messai</div><div class="tpc-affil">University of Lyon 2, France</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Hayat Bendoukha</div><div class="tpc-affil">USTO-MB, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Mahmoud Zennaki</div><div class="tpc-affil">USTO-MB, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Abdelkrim Mebarki</div><div class="tpc-affil">USTO-MB, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Abou El Hassan Benyamina</div><div class="tpc-affil">University of Oran 1, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Kamal Benhaoua</div><div class="tpc-affil">University of Mascara, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Salim Ziani</div><div class="tpc-affil">University of Constantine 1, Algeria</div></div></div>
+        
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Nacira Ghoualmi-Zine</div><div class="tpc-affil">University of Annaba, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Ahmed Rouane</div><div class="tpc-affil">ENSTTIC, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Abdallah Bensalloua Charef</div><div class="tpc-affil">University of Mostaganem, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Sid Ahmed Benchiha</div><div class="tpc-affil">University of Sidi Bel Abbes, Algeria</div></div></div>
+
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Dr. Belkacem Khaldi</div><div class="tpc-affil">ESI Sidi Bel Abbes, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Abdelkader Ghazli</div><div class="tpc-affil">University of Bechar, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Mustapha Merah</div><div class="tpc-affil">University of Mostaganem, Algeria</div></div></div>
+        <div class="tpc-member"><div class="tpc-dot"></div><div><div class="tpc-name">Pr. Maryna Kolysnik</div><div class="tpc-affil">Kharkiv Aviation Institute, Ukraine</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     VENUE
+══════════════════════════════════════ -->
+<section id="venue">
+  <div class="section-header">
+    <span class="section-eyebrow">Location</span>
+    <h2 class="section-title light">Conference Venue</h2>
+    <div class="divider"></div>
+    <p class="section-lead light">Practical information for your visit to USTO-MB, Oran, Algeria.</p>
+  </div>
+
+  <div class="venue-grid">
+    <div class="venue-info">
+      <h3>USTO-MB, Oran</h3>
+      <p class="venue-desc">University of Science and Technology of Oran Mohamed Boudiaf — one of Algeria's leading technical universities, directly served by the Oran Tramway.</p>
+      <div class="venue-details">
+        <div class="venue-detail">
+          <div class="vd-icon">🏛️</div>
+          <div>
+            <h4>Main Conference Hall</h4>
+            <p>Computer Science Department building, USTO-MB</p>
+          </div>
+        </div>
+        <div class="venue-detail">
+          <div class="vd-icon">🎭</div>
+          <div>
+            <h4>Opening Ceremony</h4>
+            <p>Auditorium or Central Library (Bibliothèque Centrale)</p>
+          </div>
+        </div>
+        <div class="venue-detail">
+          <div class="vd-icon">☕</div>
+          <div>
+            <h4>Oral Sessions &amp; Breaks</h4>
+            <p>Electrical Engineering and Computer Science facilities</p>
+          </div>
+        </div>
+        <div class="venue-detail">
+          <div class="vd-icon">🍽️</div>
+          <div>
+            <h4>Catering</h4>
+            <p>University restaurant areas near the main auditorium</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="transport-section">
+      <h3>Getting There</h3>
+      <div class="transport-list">
+        <div class="transport-item">
+          <div class="ti-icon">✈️</div>
+          <div>From Oran Ahmed Ben Bella Airport (ORN): approximately 10–12 km from campus, about 15–20 minutes by car.</div>
+        </div>
+        <div class="transport-item">
+          <div class="ti-icon">🚊</div>
+          <div>The USTO-MB campus is directly served by the Oran Tramway — a convenient option from the city centre (Station: USTO).</div>
+        </div>
+        <div class="transport-item">
+          <div class="ti-icon">🚗</div>
+          <div>Yassir and Heetch are the most reliable ride-hailing apps in Oran. Ensure you have a connected smartphone.</div>
+        </div>
+        <div class="transport-item">
+          <div class="ti-icon">📍</div>
+          <div>USTO-MB, BP 1505, El M'naouer, Oran, Algeria.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.2); border-radius:var(--radius-lg); padding:20px; text-align:center;">
+        <div style="font-size:13px; color:rgba(255,255,255,0.5); margin-bottom:12px;">Conference Location</div>
+        <a href="https://maps.app.goo.gl/YourMapLinkHere" target="_blank" class="btn-primary" style="display:inline-flex; margin:0 auto;">📍 View on Google Maps</a>
+      </div>
+
+      <div style="margin-top:24px; background:linear-gradient(135deg,rgba(201,168,76,0.1),rgba(45,106,159,0.1)); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-lg); padding:20px;">
+        <div style="font-size:11px; color:var(--gold); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; font-weight:600;">Near the Fort of Santa Cruz</div>
+        <p style="font-size:14px; color:rgba(255,255,255,0.6); line-height:1.7;">Oran is a city rich in history and culture, overlooking the Mediterranean Sea — a unique setting for an international scientific gathering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-eyebrow">Get In Touch</span>
+    <h2 class="section-title">Contact Us</h2>
+    <div class="divider"></div>
+    <p class="section-lead">Have a question about IDEAS'2027, paper submission, or registration? The organizing committee will be happy to assist.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Organizing Committee</h3>
+      <p>For inquiries related to the conference, paper submissions, or partnership opportunities, please reach out to us.</p>
+
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p>Faculty of Mathematics and Computer Science<br>USTO-MB, Oran, Algeria</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:ideas2025@univ-usto.dz">ideas2025@univ-usto.dz</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">👩‍💼</div>
+          <div>
+            <h4>Conference President</h4>
+            <p>Dr. Sarah Benziane, Chair of IDEAS'2027</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="office-hours">
+        <h4>Office Hours</h4>
+        Sunday – Thursday: 9:00 AM – 4:00 PM<br>
+        Friday – Saturday: Closed
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Send a Message</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Your first name">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Your last name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <select>
+          <option value="">Select a subject…</option>
+          <option>Paper Submission Inquiry</option>
+          <option>Registration Information</option>
+          <option>Committee / Reviewer</option>
+          <option>Sponsorship &amp; Partnership</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="5" placeholder="Write your message here…"></textarea>
+      </div>
+      <button class="btn-submit" onclick="handleFormSubmit(event)">
+        Send Message ✉️
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-brand-badge" style="display:inline-block">IDEAS'2027</div>
+      <p>National Conference on Innovation in Data Engineering and Artificial Intelligence. USTO-MB, Oran, Algeria. April 17–18, 2027.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Conference</h4>
+      <ul>
+        <li><a href="#about">About IDEAS</a></li>
+        <li><a href="#topics">Topics</a></li>
+        <li><a href="#cfp">Call for Papers</a></li>
+        <li><a href="#committees">Committees</a></li>
+        <li><a href="#venue">Venue</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Submissions</h4>
+      <ul>
+        <li><a href="https://cmt3.research.microsoft.com/" target="_blank">Submit via CMT</a></li>
+        <li><a href="https://sarahbenziane1.github.io/IDEAS2027/CFP_IDEAS_2027.pdf" target="_blank">Download CFP</a></li>
+        <li><a href="#cfp">Important Dates</a></li>
+        <li><a href="#cfp">Guidelines</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="https://www.univ-usto.dz/ideas2025/" target="_blank">IDEAS'2025</a></li>
+        <li><a href="https://www.ieee.org" target="_blank">IEEE</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2027 IDEAS'2027. All rights reserved. · Organized by USTO-MB, Oran, Algeria</span>
+    <span>Conceived by Dr. Sarah Benziane</span>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+/* ── Neural-network canvas animation (Hero background) ── */
+const canvas = document.getElementById('hero-canvas');
+const ctx = canvas.getContext('2d');
+let nodes = [];
+
+function resizeCanvas() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+function initNodes() {
+  nodes = [];
+  const count = Math.min(Math.floor((canvas.width * canvas.height) / 18000), 70);
+  for (let i = 0; i < count; i++) {
+    nodes.push({
+      x  : Math.random() * canvas.width,
+      y  : Math.random() * canvas.height,
+      vx : (Math.random() - 0.5) * 0.4,
+      vy : (Math.random() - 0.5) * 0.4,
+      r  : Math.random() * 2.5 + 1
+    });
+  }
+}
+
+function drawCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  /* move nodes */
+  nodes.forEach(n => {
+    n.x += n.vx; n.y += n.vy;
+    if (n.x < 0 || n.x > canvas.width)  n.vx *= -1;
+    if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+  });
+
+  /* draw edges */
+  for (let i = 0; i < nodes.length; i++) {
+    for (let j = i + 1; j < nodes.length; j++) {
+      const dx   = nodes[i].x - nodes[j].x;
+      const dy   = nodes[i].y - nodes[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 160) {
+        const alpha = (1 - dist / 160) * 0.5;
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x, nodes[i].y);
+        ctx.lineTo(nodes[j].x, nodes[j].y);
+        ctx.strokeStyle = `rgba(201,168,76,${alpha})`;
+        ctx.lineWidth = 0.6;
+        ctx.stroke();
+      }
+    }
+  }
+
+  /* draw nodes */
+  nodes.forEach(n => {
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(201,168,76,0.7)';
+    ctx.fill();
+  });
+
+  requestAnimationFrame(drawCanvas);
+}
+
+resizeCanvas();
+initNodes();
+drawCanvas();
+window.addEventListener('resize', () => { resizeCanvas(); initNodes(); });
+
+
+/* ── Mobile nav toggle ── */
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+/* close menu when a link is clicked */
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+
+/* ── Active nav-link highlight on scroll ── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 90) current = s.id;
+  });
+  navLinks.forEach(a => {
+    const isActive = a.getAttribute('href') === '#' + current;
+    a.style.color = isActive ? 'rgba(201,168,76,1)' : '';
+  });
+}, { passive: true });
+
+
+/* ── Contact form feedback ── */
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const btn = e.currentTarget;
+  btn.textContent = '✅ Message sent!';
+  btn.style.background = 'linear-gradient(135deg,#2D6A9F,#4A8EC2)';
+  setTimeout(() => {
+    btn.innerHTML  = 'Send Message ✉️';
+    btn.style.background = '';
+  }, 3000);
+}
+
+
+/* ── Scroll-reveal (Intersection Observer) ── */
+const revealEls = document.querySelectorAll(
+  '.topic-card, .leader-card, .honorary-card, .tpc-member, .guideline-item, .venue-detail, .contact-item'
+);
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity   = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+revealEls.forEach(el => {
+  el.style.opacity   = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+
 </body>
 </html>
